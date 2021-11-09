@@ -25,6 +25,18 @@ const Home: NextPage = () => {
       <div className={controlPanel}>
         <span>control panel</span>
         <div className={inputContainer}>
+          <span>font color: </span>
+          <input type="radio" name="choose-color" value="#d32f2f" onChange={handleColor}/>
+          <label htmlFor="red">red</label>
+          <input type="radio" name="choose-color" value="#1976d2" onChange={handleColor}/>
+          <label htmlFor="blue">blue</label>
+          <input type="radio" name="choose-color" value="#2e7d32" onChange={handleColor}/>
+          <label htmlFor="green">green</label>
+          <input type="radio" name="choose-color" value="#9c27b0" onChange={handleColor}/>
+          <label htmlFor="purple">purple</label>
+        </div>
+        <div className={inputContainer}>
+          <span>font color: </span>
           <input type="radio" name="choose-color" value="#d32f2f" onChange={handleColor}/>
           <label htmlFor="red">red</label>
           <input type="radio" name="choose-color" value="#1976d2" onChange={handleColor}/>
