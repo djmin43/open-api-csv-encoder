@@ -10,8 +10,7 @@ const Home: NextPage = () => {
 
   const hello = async () => {
     const result = await axios.get('/api/hello')
-    console.log(result)
-  } 
+  }
 
   return (
     <div>
