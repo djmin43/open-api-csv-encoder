@@ -1,19 +1,26 @@
 import type { NextPage } from 'next'
 import React, { useState, useEffect } from 'react'
+import { inputContainer, appBody, controlPanel } from '../styles/indexStyle'
+import ColorSelect from '../components/ColorSelect'
+import FontSizeSelect from '../components/FontSizeSelect'
 import axios from 'axios'
 import { css } from '@emotion/css'
 
-const Home: NextPage = () => {
+
+
+const Home: NextPage = ({ colorList, fontSizeList }: any) => {
 
   const [designObject, setDesignObject] = useState({
-    fontColor: '#000000',
+    color: '#000000',
     fontSize: '18px'
   })
+
+  const [message, setMessage] = useState('')
 
   const handleFontColor = (e: any) => {
     const newObject = {
       ...designObject,
-      fontColor: e.target.value
+      color: e.target.value
     }
     setDesignObject(newObject)
   }
@@ -26,65 +33,38 @@ const Home: NextPage = () => {
     setDesignObject(newObject)
   }
 
+  const handleText = (e: any) => {
+    setMessage(e.target.value)
+  }
+
   return (
     <div className={appBody}>
-      <h1 style={{ color: designObject.fontColor, fontSize: designObject.fontSize }}>
-        
+      <h1 style={{ ...designObject }}>
+        {message}
       </h1>
       <div className={controlPanel}>
         <span>control panel</span>
         <div className={inputContainer}>
-          <span>font color: </span>
-          <input type="radio" name="choose-font-color" value="#d32f2f" onChange={handleFontColor}/>
-          <label htmlFor="red">red</label>
-          <input type="radio" name="choose-font-color" value="#1976d2" onChange={handleFontColor}/>
-          <label htmlFor="blue">blue</label>
-          <input type="radio" name="choose-font-color" value="#2e7d32" onChange={handleFontColor}/>
-          <label htmlFor="green">green</label>
-          <input type="radio" name="choose-font-color" value="#9c27b0" onChange={handleFontColor}/>
-          <label htmlFor="purple">purple</label>
+          <input type="text" value={message} onChange={handleText} />
         </div>
+          <ColorSelect handleFontColor={handleFontColor} colorList={colorList} />
         <div className={inputContainer}>
-          <span>font size: </span>
-          <input type="radio" name="choose-font-size" value="8px" onChange={handleFontSize}/>
-          <label htmlFor="extra-small">extra small</label>
-          <input type="radio" name="choose-font-size" value="16px" onChange={handleFontSize}/>
-          <label htmlFor="extra-small">small</label>
-          <input type="radio" name="choose-font-size" value="32px" onChange={handleFontSize}/>
-          <label htmlFor="extra-small">medium</label>
-          <input type="radio" name="choose-font-size" value="64px" onChange={handleFontSize}/>
-          <label htmlFor="extra-small">large</label>
-          <input type="radio" name="choose-font-size" value="128px" onChange={handleFontSize}/>
-          <label htmlFor="extra-large">extra large</label>
+          <FontSizeSelect handleFontSize={handleFontSize} fontSizeList={fontSizeList} />
         </div>
       </div>
     </div>
   )
 }
 
-const appBody = css`
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
+export async function getStaticProps() {
+  const colorList = await axios.get('http://localhost:3000/api/font-style/color-list')
+  const fontSizeList = await axios.get('http://localhost:3000/api/font-style/font-size')
 
-const controlPanel = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
-const inputContainer = css`
-  margin: 1rem;
-`
-
-const applyButton = css`
-  padding: 0.5rem 1rem;
-  background-color: #ffffff;
-  margin: 1rem;
-`
-
+  return {
+    props: {
+      colorList: colorList.data,
+      fontSizeList: fontSizeList.data
+    },
+  }
+}
 export default Home
