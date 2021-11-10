@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   return (
     <div className={appBody}>
       <h1 style={{ color: designObject.fontColor, fontSize: designObject.fontSize }}>
-        hello world
+        
       </h1>
       <div className={controlPanel}>
         <span>control panel</span>
