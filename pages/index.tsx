@@ -1,11 +1,13 @@
 import type { NextPage } from 'next'
 import React, { useState, useEffect } from 'react'
-import { inputContainer } from '../styles/containerStyles'
+import { inputContainer, appBody, controlPanel } from '../styles/indexStyle'
 import ColorSelect from '../components/ColorSelect'
 import axios from 'axios'
 import { css } from '@emotion/css'
 
-const Home: NextPage = () => {
+
+
+const Home: NextPage = ({ colorList }: any) => {
 
   const [designObject, setDesignObject] = useState({
     color: '#000000',
@@ -44,7 +46,7 @@ const Home: NextPage = () => {
         <div className={inputContainer}>
           <input type="text" value={message} onChange={handleText} />
         </div>
-        <ColorSelect handleFontColor={handleFontColor} />
+        <ColorSelect handleFontColor={handleFontColor} colorList={colorList} />
         <div className={inputContainer}>
           <span>font size: </span>
           <input type="radio" name="choose-font-size" value="8px" onChange={handleFontSize}/>
@@ -63,25 +65,13 @@ const Home: NextPage = () => {
   )
 }
 
-const appBody = css`
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
+export async function getStaticProps() {
+  const colorList = await axios.get('http://localhost:3000/api/font-style/color-list')
 
-const controlPanel = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
-const applyButton = css`
-  padding: 0.5rem 1rem;
-  background-color: #ffffff;
-  margin: 1rem;
-`
-
+  return {
+    props: {
+      colorList: colorList.data
+    },
+  }
+}
 export default Home
