@@ -6,7 +6,7 @@ import { css } from '@emotion/css'
 const Home: NextPage = () => {
 
   const [designObject, setDesignObject] = useState({
-    fontColor: '#000000',
+    color: '#000000',
     fontSize: '18px'
   })
 
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const handleFontColor = (e: any) => {
     const newObject = {
       ...designObject,
-      fontColor: e.target.value
+      color: e.target.value
     }
     setDesignObject(newObject)
   }
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={appBody}>
-      <h1 style={{ color: designObject.fontColor, fontSize: designObject.fontSize }}>
+      <h1 style={{ ...designObject }}>
         {message}
       </h1>
       <div className={controlPanel}>
