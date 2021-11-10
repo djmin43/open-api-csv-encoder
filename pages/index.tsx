@@ -10,6 +10,8 @@ const Home: NextPage = () => {
     fontSize: '18px'
   })
 
+  const [message, setMessage] = useState('')
+
   const handleFontColor = (e: any) => {
     const newObject = {
       ...designObject,
@@ -26,13 +28,20 @@ const Home: NextPage = () => {
     setDesignObject(newObject)
   }
 
+  const handleText = (e: any) => {
+    setMessage(e.target.value)
+  }
+
   return (
     <div className={appBody}>
       <h1 style={{ color: designObject.fontColor, fontSize: designObject.fontSize }}>
-        hello world
+        {message}
       </h1>
       <div className={controlPanel}>
         <span>control panel</span>
+        <div className={inputContainer}>
+          <input type="text" value={message} onChange={handleText} />
+        </div>
         <div className={inputContainer}>
           <span>font color: </span>
           <input type="radio" name="choose-font-color" value="#d32f2f" onChange={handleFontColor}/>
