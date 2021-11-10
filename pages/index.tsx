@@ -2,12 +2,13 @@ import type { NextPage } from 'next'
 import React, { useState, useEffect } from 'react'
 import { inputContainer, appBody, controlPanel } from '../styles/indexStyle'
 import ColorSelect from '../components/ColorSelect'
+import FontSizeSelect from '../components/FontSizeSelect'
 import axios from 'axios'
 import { css } from '@emotion/css'
 
 
 
-const Home: NextPage = ({ colorList }: any) => {
+const Home: NextPage = ({ colorList, fontSizeList }: any) => {
 
   const [designObject, setDesignObject] = useState({
     color: '#000000',
@@ -46,19 +47,9 @@ const Home: NextPage = ({ colorList }: any) => {
         <div className={inputContainer}>
           <input type="text" value={message} onChange={handleText} />
         </div>
-        <ColorSelect handleFontColor={handleFontColor} colorList={colorList} />
+          <ColorSelect handleFontColor={handleFontColor} colorList={colorList} />
         <div className={inputContainer}>
-          <span>font size: </span>
-          <input type="radio" name="choose-font-size" value="8px" onChange={handleFontSize}/>
-          <label htmlFor="extra-small">extra small</label>
-          <input type="radio" name="choose-font-size" value="16px" onChange={handleFontSize}/>
-          <label htmlFor="extra-small">small</label>
-          <input type="radio" name="choose-font-size" value="32px" onChange={handleFontSize}/>
-          <label htmlFor="extra-small">medium</label>
-          <input type="radio" name="choose-font-size" value="64px" onChange={handleFontSize}/>
-          <label htmlFor="extra-small">large</label>
-          <input type="radio" name="choose-font-size" value="128px" onChange={handleFontSize}/>
-          <label htmlFor="extra-large">extra large</label>
+          <FontSizeSelect handleFontSize={handleFontSize} fontSizeList={fontSizeList} />
         </div>
       </div>
     </div>
@@ -67,10 +58,12 @@ const Home: NextPage = ({ colorList }: any) => {
 
 export async function getStaticProps() {
   const colorList = await axios.get('http://localhost:3000/api/font-style/color-list')
+  const fontSizeList = await axios.get('http://localhost:3000/api/font-style/font-size')
 
   return {
     props: {
-      colorList: colorList.data
+      colorList: colorList.data,
+      fontSizeList: fontSizeList.data
     },
   }
 }
