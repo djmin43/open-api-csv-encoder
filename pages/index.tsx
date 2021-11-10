@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
 import React, { useState, useEffect } from 'react'
+import { inputContainer } from '../styles/containerStyles'
+import ColorSelect from '../components/ColorSelect'
 import axios from 'axios'
 import { css } from '@emotion/css'
 
@@ -42,17 +44,7 @@ const Home: NextPage = () => {
         <div className={inputContainer}>
           <input type="text" value={message} onChange={handleText} />
         </div>
-        <div className={inputContainer}>
-          <span>font color: </span>
-          <input type="radio" name="choose-font-color" value="#d32f2f" onChange={handleFontColor}/>
-          <label htmlFor="red">red</label>
-          <input type="radio" name="choose-font-color" value="#1976d2" onChange={handleFontColor}/>
-          <label htmlFor="blue">blue</label>
-          <input type="radio" name="choose-font-color" value="#2e7d32" onChange={handleFontColor}/>
-          <label htmlFor="green">green</label>
-          <input type="radio" name="choose-font-color" value="#9c27b0" onChange={handleFontColor}/>
-          <label htmlFor="purple">purple</label>
-        </div>
+        <ColorSelect handleFontColor={handleFontColor} />
         <div className={inputContainer}>
           <span>font size: </span>
           <input type="radio" name="choose-font-size" value="8px" onChange={handleFontSize}/>
@@ -84,10 +76,6 @@ const controlPanel = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
-
-const inputContainer = css`
-  margin: 1rem;
 `
 
 const applyButton = css`
