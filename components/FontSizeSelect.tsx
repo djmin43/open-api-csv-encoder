@@ -17,7 +17,7 @@ const ColorSelect = ({handleFontSize, fontSizeList }: FontSizeProps) => {
         fontSizeList.map((item: FontSize, index) =>
           <span key={item.id}>
             <label htmlFor={item.size}>{item.size}</label>
-            <input type="radio" name="choose-font-color" value={item.value} onChange={handleFontSize}/>
+            <input type="radio" name="choose-font-size" value={item.value} onChange={handleFontSize}/>
           </span>
         )
       }

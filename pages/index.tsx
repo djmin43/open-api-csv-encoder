@@ -4,9 +4,8 @@ import { inputContainer, appBody, controlPanel } from '../styles/indexStyle'
 import ColorSelect from '../components/ColorSelect'
 import FontSizeSelect from '../components/FontSizeSelect'
 import axios from 'axios'
-import { css } from '@emotion/css'
-
-
+import MainBody from '../components/MainBody'
+import { v4 as uuidv4 } from 'uuid'
 
 const Home: NextPage = ({ colorList, fontSizeList }: any) => {
 
@@ -37,13 +36,41 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
     setMessage(e.target.value)
   }
 
+  const addComponent = () => {
+    const newId = uuidv4()
+    const newComponent = {
+      id: newId,
+      message,
+      designObject,
+    }
+    const newComponentList = [...componentList, newComponent]
+    setComponentList(newComponentList)
+    console.log(componentList)
+  }
+
+  const [componentList, setComponentList] = useState([
+    {
+      id: 'asdjfasdf',
+      message: '',
+      designObject: {
+        color: '#000000',
+        fontSize: '18px',
+      }
+    }
+  ])
+
   return (
     <div className={appBody}>
-      <h1 style={{ ...designObject }}>
-        {message}
+      <h1>
+        {componentList.map(component =>
+          <MainBody key={component.id} message={component.message} designObject={component.designObject} />
+          )}
       </h1>
       <div className={controlPanel}>
         <span>control panel</span>
+        <div className={inputContainer}>
+          <button onClick={addComponent}>add container</button>
+        </div>
         <div className={inputContainer}>
           <input type="text" value={message} onChange={handleText} />
         </div>
