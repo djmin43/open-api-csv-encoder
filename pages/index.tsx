@@ -36,13 +36,33 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
     setMessage(e.target.value)
   }
 
+  const addComponent = () => {
+    const newComponent = {
+      id: 2,
+    }
+    const newComponentList = [...componentList, newComponent]
+    setComponentList(newComponentList)
+    console.log(componentList)
+  }
+
+  const [componentList, setComponentList] = useState([
+    {
+      id: 1,
+    }
+  ])
+
   return (
     <div className={appBody}>
       <h1 style={{ ...designObject }}>
-        <MainBody message={message} />
+        {componentList.map(component =>
+          <MainBody key={component.id} message={message} />
+          )}
       </h1>
       <div className={controlPanel}>
         <span>control panel</span>
+        <div className={inputContainer}>
+          <button onClick={addComponent}>add container</button>
+        </div>
         <div className={inputContainer}>
           <input type="text" value={message} onChange={handleText} />
         </div>
