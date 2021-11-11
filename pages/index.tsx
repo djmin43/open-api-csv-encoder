@@ -4,7 +4,6 @@ import { inputContainer, appBody, controlPanel } from '../styles/indexStyle'
 import ColorSelect from '../components/ColorSelect'
 import FontSizeSelect from '../components/FontSizeSelect'
 import axios from 'axios'
-import { css } from '@emotion/css'
 
 
 
