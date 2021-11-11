@@ -5,7 +5,7 @@ import ColorSelect from '../components/ColorSelect'
 import FontSizeSelect from '../components/FontSizeSelect'
 import axios from 'axios'
 import MainBody from '../components/MainBody'
-
+import { v4 as uuidv4 } from 'uuid'
 
 const Home: NextPage = ({ colorList, fontSizeList }: any) => {
 
@@ -37,8 +37,9 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
   }
 
   const addComponent = () => {
+    const newId = uuidv4()
     const newComponent = {
-      id: 2,
+      id: newId,
     }
     const newComponentList = [...componentList, newComponent]
     setComponentList(newComponentList)
@@ -47,7 +48,7 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
 
   const [componentList, setComponentList] = useState([
     {
-      id: 1,
+      id: 'asdjfasdf'
     }
   ])
 
