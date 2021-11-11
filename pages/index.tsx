@@ -4,7 +4,7 @@ import { inputContainer, appBody, controlPanel } from '../styles/indexStyle'
 import ColorSelect from '../components/ColorSelect'
 import FontSizeSelect from '../components/FontSizeSelect'
 import axios from 'axios'
-
+import MainBody from '../components/MainBody'
 
 
 const Home: NextPage = ({ colorList, fontSizeList }: any) => {
@@ -39,7 +39,7 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
   return (
     <div className={appBody}>
       <h1 style={{ ...designObject }}>
-        {message}
+        <MainBody message={message} />
       </h1>
       <div className={controlPanel}>
         <span>control panel</span>
