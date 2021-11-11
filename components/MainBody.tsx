@@ -1,12 +1,13 @@
 import React from 'react'
 
 interface BodyProps {
-  message: string
+  message: string,
+  designObject: {},
 }
 
-const MainBody = ({message}: BodyProps) => {
+const MainBody = ({ message, designObject }: BodyProps) => {
   return (
-    <div>
+    <div style={{ ...designObject }}>
       { message }
     </div>
   )

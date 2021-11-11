@@ -40,6 +40,8 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
     const newId = uuidv4()
     const newComponent = {
       id: newId,
+      message,
+      designObject,
     }
     const newComponentList = [...componentList, newComponent]
     setComponentList(newComponentList)
@@ -48,15 +50,20 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
 
   const [componentList, setComponentList] = useState([
     {
-      id: 'asdjfasdf'
+      id: 'asdjfasdf',
+      message: '',
+      designObject: {
+        color: '#000000',
+        fontSize: '18px',
+      }
     }
   ])
 
   return (
     <div className={appBody}>
-      <h1 style={{ ...designObject }}>
+      <h1>
         {componentList.map(component =>
-          <MainBody key={component.id} message={message} />
+          <MainBody key={component.id} message={component.message} designObject={component.designObject} />
           )}
       </h1>
       <div className={controlPanel}>
