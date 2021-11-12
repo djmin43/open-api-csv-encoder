@@ -4,10 +4,10 @@ import Link from 'next/link'
 const Navbar = () => {
   return (
     <div>
-      <Link>
+      <Link href="/create" passHref>
         <span>create new</span>
       </Link>
-      <Link>
+      <Link href="/edit" passHref>
         <span>edit</span>
       </Link>
     </div>

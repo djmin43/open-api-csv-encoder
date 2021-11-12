@@ -6,6 +6,7 @@ import FontSizeSelect from '../components/FontSizeSelect'
 import axios from 'axios'
 import MainBody from '../components/MainBody'
 import { v4 as uuidv4 } from 'uuid'
+import Navbar from '../components/Navbar'
 
 const Home: NextPage = ({ colorList, fontSizeList }: any) => {
 
@@ -65,6 +66,7 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
 
   return (
     <div className={appBody}>
+      <Navbar />
       <h1>
         {componentList.map(component =>
         <div onClick={() => consoleId(component.id)} key={component.id}>
