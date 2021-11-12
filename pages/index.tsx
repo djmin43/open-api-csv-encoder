@@ -48,6 +48,10 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
     console.log(componentList)
   }
 
+  const consoleId = (id: string) => {
+    console.log(id)
+  }
+
   const [componentList, setComponentList] = useState([
     {
       id: 'asdjfasdf',
@@ -63,8 +67,15 @@ const Home: NextPage = ({ colorList, fontSizeList }: any) => {
     <div className={appBody}>
       <h1>
         {componentList.map(component =>
-          <MainBody key={component.id} message={component.message} designObject={component.designObject} />
+        <div onClick={() => consoleId(component.id)} key={component.id}>
+          <MainBody
+            key={component.id}
+            message={component.message}
+            designObject={component.designObject}
+            />
+        </div>
           )}
+          
       </h1>
       <div className={controlPanel}>
         <span>control panel</span>
