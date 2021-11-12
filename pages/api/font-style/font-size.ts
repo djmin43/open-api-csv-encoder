@@ -28,16 +28,16 @@ export const fontSizeList = [
   {
     id: 3,
     size: 'medium',
-    value: '8px'
+    value: '32px'
   },
   {
     id: 4,
     size: 'large',
-    value: '32px'
+    value: '64px'
   },
   {
     id: 5,
     size: 'extra large',
-    value: '64px'
+    value: '128px'
   },
 ]
