@@ -1,6 +1,7 @@
 import { Encoder } from "@/app/_components/encoder";
 import "./main-styles.scss";
 import TempFooter from "@/app/_components/temp-footer";
+import classNames from "classnames";
 export default function Home() {
   return (
     <main className="main-page">
@@ -14,7 +15,9 @@ export default function Home() {
       </div>
       <div className="main-container">
         <p className="subheader1">
-          파일첨부하기 버튼을 눌러 "csv" 포맷의 파일을 첨부해주세요.
+          파일첨부하기 버튼을 눌러{" "}
+          <span className={classNames("subheader1")}>CSV</span> 포맷의 파일을
+          첨부해주세요.
         </p>
         <Encoder />
       </div>
