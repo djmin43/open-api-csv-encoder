@@ -5,8 +5,9 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "csv 파일 한글깨짐 해결사",
-  description: "csv 파일 한글깨짐 해결사",
+  title: "한글깨짐 해결사",
+  description:
+    "한글이 깨져보이는 csv 파일을 한글이 보일 수 있도록 해결해드려요.",
 };
 
 export default function RootLayout({

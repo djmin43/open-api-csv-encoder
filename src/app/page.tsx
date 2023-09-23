@@ -1,5 +1,6 @@
 import { Encoder } from "@/app/_components/encoder";
 import "./main-styles.scss";
+import TempFooter from "@/app/_components/temp-footer";
 export default function Home() {
   return (
     <main className="main-page">
@@ -17,6 +18,7 @@ export default function Home() {
         </p>
         <Encoder />
       </div>
+      <TempFooter />
     </main>
   );
 }
