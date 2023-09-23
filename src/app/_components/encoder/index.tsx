@@ -1,13 +1,14 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import "./encoder-styles.scss";
 
 export const Encoder = () => {
+  let downloadRef = useRef<HTMLAnchorElement>(null);
   const readFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
     const file = e.target.files && e.target.files[0];
     if (file) {
-      reader.readAsText(file);
+      reader.readAsText(file, "euc-kr");
 
       reader.onload = function (event) {
         const originalContent = event.target?.result as string;
@@ -18,28 +19,27 @@ export const Encoder = () => {
           type: "text/csv;charset=utf-8",
         });
 
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = "new_" + file.name; // Use the original file name
-
-        a.click();
-
-        URL.revokeObjectURL(a.href);
+        if (downloadRef.current && blob) {
+          downloadRef.current.href = URL.createObjectURL(blob);
+          downloadRef.current.download = "encoded_" + file.name;
+        }
       };
-
-      reader.readAsText(file, "euc-kr");
     }
   };
   return (
     <div className="container">
-      <label htmlFor="csv-file">csv file: </label>
-      <input
-        accept="text/csv"
-        type="file"
-        name="csv-file"
-        aria-label="file"
-        onChange={readFile}
-      />
+      <div className="input-container">
+        <label htmlFor="csv-file">csv file: </label>
+        <input
+          accept="text/csv"
+          type="file"
+          name="csv-file"
+          aria-label="file"
+          onChange={readFile}
+        />
+      </div>
+
+      <a ref={downloadRef}>download {downloadRef.current?.download}</a>
     </div>
   );
 };
