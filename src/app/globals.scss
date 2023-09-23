@@ -1,0 +1,74 @@
+
+$background: #B3C1CC;
+
+$primary-1: #344955;
+$primary-2: #232F34;
+$primary-3: #4A6572;
+
+$secondary-1: #F9AA33;
+
+$white: #fff;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+
+body {
+  background: $background;
+}
+
+p, span {
+  color: $primary-1;
+}
+
+button {
+  font-size: 14px;
+  font-weight: 600;
+  color: $primary-1;
+  background: $secondary-1;
+  border: none;
+  border-radius: 4px;
+  &:active {
+    background: $primary-3;
+  }
+}
+
+.header1 {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.header2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.subheader1 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.subheader2 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.body1 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.body2 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 400;
+}
+

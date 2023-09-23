@@ -1,6 +1,32 @@
-.main-container{
+
+@import "globals";
+
+.main-page{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100svh;
+}
+
+.header-wrapper {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 32px;
+  border: 1px solid $primary-3;
+  width: 640px;
+  height: 160px;
+  padding: 16px 48px;
+  border-radius: 4px;
 }
