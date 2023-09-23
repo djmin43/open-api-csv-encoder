@@ -22,7 +22,10 @@ body {
 }
 
 p, span {
-  color: $primary-1;
+}
+
+a {
+  color: $white;
 }
 
 button {
