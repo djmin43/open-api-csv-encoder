@@ -2,6 +2,7 @@ import "./globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="naver-site-verification"
+          content="4dee96c4eeff952b9a21af62daa0e529d3e6a489"
+        />
+      </head>
+
       <Script
         id="google-analytics"
         dangerouslySetInnerHTML={{
