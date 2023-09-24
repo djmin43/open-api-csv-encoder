@@ -1,11 +1,11 @@
 import "./globals.scss";
+import "./main-styles.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
-import Head from "next/head";
 import { Header } from "@/app/_components/header";
 import { NoScript } from "@/app/_components/no-script";
 import { Navbar } from "@/app/_components/navbar";
+import Footer from "@/app/_components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Header />
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} main-page`}>
         <NoScript />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

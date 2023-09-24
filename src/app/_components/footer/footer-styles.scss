@@ -1,0 +1,10 @@
+@import "../../globals";
+
+.footer-container {
+  margin-top: auto;
+  width: 100%;
+  background: $footer;
+  color: $white;
+  padding: 50px 150px;
+  @include flex-center;
+}
