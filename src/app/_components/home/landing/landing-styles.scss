@@ -1,0 +1,16 @@
+@import '../../../globals';
+
+.landing-container {
+  display: flex;
+  padding: 60px 150px;
+}
+
+.text-hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 700px;
+  white-space: pre-wrap;
+  gap: 24px;
+}

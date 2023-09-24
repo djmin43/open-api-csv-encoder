@@ -47,7 +47,7 @@ export const Encoder = () => {
           inputRef.current?.click();
         }}
       >
-        파일 첨부하기
+        한글로 보이게 변환하기
       </button>
 
       <div>
