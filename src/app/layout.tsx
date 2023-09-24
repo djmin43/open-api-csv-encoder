@@ -2,10 +2,10 @@ import "./globals.scss";
 import "./main-styles.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Header } from "@/app/_components/header";
-import { NoScript } from "@/app/_components/no-script";
-import { Navbar } from "@/app/_components/navbar";
-import Footer from "@/app/_components/footer";
+import { Header } from "_components/tracking/header";
+import { NoScript } from "_components/tracking/no-script";
+import { Navbar } from "_components/layout/navbar";
+import Footer from "_components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
