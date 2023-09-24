@@ -1,13 +1,22 @@
 
-$background: #B3C1CC;
-
-$primary-1: #344955;
-$primary-2: #232F34;
-$primary-3: #4A6572;
-
-$secondary-1: #F9AA33;
-
+// palette
+$background: #fff;
+$footer: #2E3E5C;
+$primary-1: #706FE5;
+$primary-2: #2E3E5C;
+$dark: #1E1F4B;
+$gray: #2E3E5C;
 $white: #fff;
+
+
+// mixins
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 * {
   box-sizing: border-box;
@@ -16,66 +25,58 @@ $white: #fff;
   line-height: 1;
 }
 
-
 body {
   background: $background;
 }
 
-p, span {
-}
-
 a {
-  color: $white;
+  color: $primary-1;
+  text-decoration: none;
 }
 
 button {
   font-size: 14px;
   font-weight: 600;
-  color: $primary-1;
-  background: $secondary-1;
+  color: $white;
+  background: $primary-1;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
+  padding: 10px 40px;
   &:active {
-    background: $primary-3;
+    background: $primary-2;
   }
 }
 
 .header1 {
-  font-size: 48px;
-  font-weight: 600;
+  font-size: 60px;
+  font-weight: 700;
 }
 
 .header2 {
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 40px;
+  font-weight: 700;
 }
 
 .subheader1 {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 600;
+  color: $dark;
 }
 
 .subheader2 {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 400;
+  color: $dark;
 }
 
 .body1 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
+  color: $gray;
 }
 
 .body2 {
   font-size: 14px;
   font-weight: 400;
+  color: $gray;
 }
-
-.caption {
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.highlight{
-  color: $secondary-1;
-}
-

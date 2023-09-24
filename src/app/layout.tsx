@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import Head from "next/head";
+import { Header } from "@/app/_components/header";
+import { NoScript } from "@/app/_components/no-script";
+import { Navbar } from "@/app/_components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,34 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta
-          name="naver-site-verification"
-          content="4dee96c4eeff952b9a21af62daa0e529d3e6a489"
-        />
-      </head>
-
-      <Script
-        id="google-analytics"
-        dangerouslySetInnerHTML={{
-          __html: `
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MQBP4XTC')
-        `,
-        }}
-      />
-
+      <Header />
       <body className={`${inter.className}`}>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-MQBP4XTC"
-            height="0"
-            width="0"
-          ></iframe>
-        </noscript>
+        <NoScript />
+        <Navbar />
         {children}
       </body>
     </html>
