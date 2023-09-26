@@ -22,9 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Header />
+      {process.env.NODE_ENV !== "development" && <Header />}
       <body className={`${inter.className} main-page`}>
-        <NoScript />
+        {process.env.NODE_ENV !== "development" && <NoScript />}
         <Navbar />
         {children}
         <Footer />

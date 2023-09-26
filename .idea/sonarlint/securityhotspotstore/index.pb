@@ -12,8 +12,6 @@ A
 next-env.d.ts,7/9/7948598afd6f2aa542f1b55d7b6f077a70937e77
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-]
--src/app/_components/tracking/header/index.tsx,1/6/165bbfcd7776e5286f58366fbb40bac50157e5a6
 `
 0src/app/_components/tracking/no-script/index.tsx,5/5/5503585a84a4900f0594c96781e16f00e162e3c6
 [
