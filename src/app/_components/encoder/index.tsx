@@ -11,13 +11,11 @@ export const Encoder = () => {
     const reader = new FileReader();
     const file = e.target.files && e.target.files[0];
     if (file) {
-      reader.readAsText(file, "euc-kr");
-
       reader.onload = function (event) {
         const originalContent = event.target?.result as string;
         const bomContent = "\uFEFF" + originalContent;
         const blob = new Blob([bomContent], {
-          type: `${fileType.csv};charset=utf-8`,
+          type: `${fileType.excel}`,
         });
 
         if (downloadRef.current && blob) {
@@ -27,6 +25,7 @@ export const Encoder = () => {
           setHasDownload(true);
         }
       };
+      reader.readAsText(file, "euc-kr");
     }
   };
   return (
