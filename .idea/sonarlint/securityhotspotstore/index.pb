@@ -32,7 +32,5 @@ d
 4src/app/_components/layout/navbar/navbar-styles.scss,b/4/b42d9f02f40071d0807f29a9f31392f750cd0965
 O
 src/app/about/about-styles.scss,8/7/874e0f082017769677f3d82b4da0418196ab50c2
-F
-src/app/about/page.tsx,1/d/1dfffa14ce1e987107ad40fe51c0c049c3149894
 [
 +src/app/_components/layout/navbar/index.tsx,3/9/39fb123deb25d93cb416397d60047eac7641a087
