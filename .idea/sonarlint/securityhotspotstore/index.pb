@@ -52,3 +52,5 @@ D
 src/app/globals.scss,e/5/e538556067dff0d3283740bfa03e693e5f9332f8
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
+B
+public/sitemap.xml,2/f/2fe7f218c8d47bee56d71bed3b5f461be878d1d6
