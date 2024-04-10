@@ -19,7 +19,7 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   title: "한글깨짐 해결사",
   description:
-    "한글이 깨져서 보이는 CSV 파일을 정확하게 표시할 수 있도록 도와드립니다.",
+    "한글이 깨져서 보이는 CSV 파일을 엑셀 필요없이 바로 해결해드려요.",
   keywords: ["한글깨짐", "CSV", "csv", "엑셀", "한글깨짐 해결"],
 };
 
