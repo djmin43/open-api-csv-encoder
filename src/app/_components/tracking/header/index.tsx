@@ -4,6 +4,7 @@ import Script from "next/script";
 export const Header = () => {
   return (
     <head>
+      <link rel="icon" href="/favicon.png" />
       <meta
         name="naver-site-verification"
         content="4dee96c4eeff952b9a21af62daa0e529d3e6a489"

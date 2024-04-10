@@ -46,7 +46,7 @@ export const Encoder = () => {
           inputRef.current?.click();
         }}
       >
-        한글로 보이게 변환하기
+        깨짐 해결하기
       </button>
 
       <div>

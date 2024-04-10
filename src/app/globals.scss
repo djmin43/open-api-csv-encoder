@@ -36,15 +36,20 @@ a {
 }
 
 button {
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 600;
   color: $white;
   background: $primary-1;
   border: none;
   border-radius: 12px;
   padding: 10px 40px;
+  height: 80px;
+  width: 240px;
   &:active {
     background: $primary-2;
+  }
+  &:hover {
+    filter: brightness(1.1);
   }
 }
 
